@@ -1,6 +1,7 @@
 env:
     browser: true
     es6: true
+    jest/globals: true
 extends:
     - airbnb-base
 globals:
@@ -16,3 +17,5 @@ rules:
     no-plusplus:
         - 2
         - allowForLoopAfterthoughts: true
+plugins:
+    - jest
