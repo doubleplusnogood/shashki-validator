@@ -1,5 +1,7 @@
+/* eslint-disable import/no-named-as-default-member */
 import { EMPTY, STARTING_POSITION } from './positions';
 import { Turns, PieceTypes } from './shared';
+import man from './man';
 
 class RussianShashki {
     constructor() {
@@ -44,7 +46,7 @@ class RussianShashki {
                 return null;
             }
             if (pieceType === PieceTypes.Man) {
-                return null;
+                return man.checkMoves(from, this.boardState, checkOnlyTakes);
             }
         }
         return null;
