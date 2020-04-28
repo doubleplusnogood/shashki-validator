@@ -10,7 +10,6 @@ test('getPossibleMoves', () => {
 
     game.makeMove([5, 2], [4, 3]);
 
-    // assert_eq!(game.board_state(), POSITION_C3_D4);
     expect(game.getIsMoveFinished()).toBe(true);
     expect(game.getMoveTurn()).toBe(Turns.Black);
 
