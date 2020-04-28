@@ -50,7 +50,7 @@ class RussianShashki {
             }
             const { pieceType } = piece;
             if (pieceType === PieceTypes.King) {
-                return king.checkMoves(from, this.boardState, checkOnlyTakes);;
+                return king.checkMoves(from, this.boardState, checkOnlyTakes);
             }
             if (pieceType === PieceTypes.Man) {
                 return man.checkMoves(from, this.boardState, checkOnlyTakes);
