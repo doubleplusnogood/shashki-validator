@@ -8,6 +8,7 @@ import {
     clonePiece,
 } from './shared';
 import man from './man';
+import king from './king';
 
 class RussianShashki {
     constructor() {
@@ -49,7 +50,7 @@ class RussianShashki {
             }
             const { pieceType } = piece;
             if (pieceType === PieceTypes.King) {
-                return null;
+                return king.checkMoves(from, this.boardState, checkOnlyTakes);;
             }
             if (pieceType === PieceTypes.Man) {
                 return man.checkMoves(from, this.boardState, checkOnlyTakes);
