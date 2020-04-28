@@ -24,6 +24,8 @@ const checkTakes = (fromRow, fromCol, boardState, selfTurn) => {
                                     to: [afterTakeRow, afterTakeCol],
                                     takenPiece: [nextRow, nextCol],
                                 });
+                            } else {
+                                break;
                             }
                             afterTakeRow += dirRow;
                             afterTakeCol += dirCol;

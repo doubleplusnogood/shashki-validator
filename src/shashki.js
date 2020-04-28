@@ -6,6 +6,7 @@ import {
     cmpCoords,
     getOppositeTurn,
     clonePiece,
+    ascii,
 } from './shared';
 import man from './man';
 import king from './king';
@@ -74,7 +75,7 @@ class Validator {
                 } else if (this.moveTurn === Turns.Black && toRow === 7) {
                     this.boardState[toRow][toCol] = {
                         pieceType: PieceTypes.King,
-                        turn: Turns.White,
+                        turn: Turns.Black,
                         isTaken: false,
                     };
                 } else {
@@ -116,34 +117,7 @@ class Validator {
     }
 
     ascii() {
-        let asciiStr = '   0  1  2  3  4  5  6  7';
-        for (let row = 0; row < 8; ++row) {
-            asciiStr += `\n\n${row} `;
-            const boardRow = this.boardState[row];
-            for (let col = 0; col < 8; ++col) {
-                const piece = boardRow[col];
-                if (piece === null) {
-                    asciiStr += ' . ';
-                } else {
-                    const { pieceType, turn } = piece;
-                    if (pieceType === PieceTypes.King) {
-                        if (turn === Turns.White) {
-                            asciiStr += ' W ';
-                        } else {
-                            asciiStr += ' B ';
-                        }
-                    }
-                    if (pieceType === PieceTypes.Man) {
-                        if (turn === Turns.White) {
-                            asciiStr += ' w ';
-                        } else {
-                            asciiStr += ' b ';
-                        }
-                    }
-                }
-            }
-        }
-        return asciiStr;
+        return ascii(this.boardState);
     }
 }
 
