@@ -8,8 +8,8 @@ import {
     clonePiece,
     ascii,
 } from './shared';
-import man from './man';
-import king from './king';
+import man from './rules/man';
+import king from './rules/king';
 
 class Validator {
     constructor() {

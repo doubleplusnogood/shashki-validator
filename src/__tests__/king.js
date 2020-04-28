@@ -1,6 +1,5 @@
 import { POSITION_WK_70_16_BK_43_36_27, POSITION_WK_43, POSITION_WK_72_BM_54_45 } from '../positions';
-import { ascii } from '../shared';
-import king from '../king';
+import king from '../rules/king';
 
 test('king', () => {
     expect(king.checkMoves([7, 0], POSITION_WK_70_16_BK_43_36_27, false))
