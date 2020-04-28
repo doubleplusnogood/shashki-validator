@@ -284,3 +284,41 @@ export const POSITION_WK_43 = [
     [null, null, null, null, null, null, null, null],
     [null, null, null, null, null, null, null, null],
 ];
+
+export const POSITION_WK_72_BM_54_45 = [
+    [null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null],
+    [null, null, null, null, null, null, null, null],
+    [
+        null,
+        null,
+        null,
+        null,
+        null,
+        { turn: Turns.Black, isTaken: false, pieceType: PieceTypes.Man },
+        null,
+        null,
+    ],
+    [
+        null,
+        null,
+        null,
+        null,
+        { turn: Turns.Black, isTaken: false, pieceType: PieceTypes.Man },
+        null,
+        null,
+        null,
+    ],
+    [null, null, null, null, null, null, null, null],
+    [
+        null,
+        null,
+        { turn: Turns.White, isTaken: false, pieceType: PieceTypes.King },
+        null,
+        null,
+        null,
+        null,
+        null,
+    ],
+];

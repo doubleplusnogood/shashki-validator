@@ -1,10 +1,8 @@
-import { POSITION_WK_70_16_BK_43_36_27, POSITION_WK_43 } from '../positions';
+import { POSITION_WK_70_16_BK_43_36_27, POSITION_WK_43, POSITION_WK_72_BM_54_45 } from '../positions';
 import { ascii } from '../shared';
 import king from '../king';
 
 test('king', () => {
-    console.log(ascii(POSITION_WK_43));
-
     expect(king.checkMoves([7, 0], POSITION_WK_70_16_BK_43_36_27, false))
         .toStrictEqual({
             isTake: true,
@@ -101,6 +99,25 @@ test('king', () => {
                 },
                 {
                     to: [7, 6],
+                    takenPiece: null,
+                },
+            ],
+        });
+
+    expect(king.checkMoves([7, 2], POSITION_WK_72_BM_54_45, false))
+        .toStrictEqual({
+            isTake: false,
+            moves: [
+                {
+                    to: [6, 1],
+                    takenPiece: null,
+                },
+                {
+                    to: [5, 0],
+                    takenPiece: null,
+                },
+                {
+                    to: [6, 3],
                     takenPiece: null,
                 },
             ],

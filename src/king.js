@@ -7,10 +7,12 @@ const checkTakes = (fromRow, fromCol, boardState, selfTurn) => {
     const handleDirectionTake = (dirRow, dirCol, turn) => {
         let nextRow = fromRow + dirRow;
         let nextCol = fromCol + dirCol;
+        let isFirstPieceFound = false;
 
-        while (isCoordInRange(nextRow) && isCoordInRange(nextCol)) {
+        while (isCoordInRange(nextRow) && isCoordInRange(nextCol) && !isFirstPieceFound) {
             const piece = boardState[nextRow][nextCol];
             if (piece !== null) {
+                isFirstPieceFound = true;
                 const { isTaken, turn: pieceTurn } = piece;
                 if (!isTaken) {
                     const oppositeTurn = getOppositeTurn(turn);
@@ -63,13 +65,16 @@ const checkMoves = (from, boardState, checkOnlyTakes) => {
         const handleDirectionSimpleMove = (dirRow, dirCol) => {
             let nextRow = fromRow + dirRow;
             let nextCol = fromCol + dirCol;
+            let isFirstPieceFound = false;
 
-            while (isCoordInRange(nextRow) && isCoordInRange(nextCol)) {
+            while (isCoordInRange(nextRow) && isCoordInRange(nextCol) && !isFirstPieceFound) {
                 if (boardState[nextRow][nextCol] === null) {
                     possibleMoves.push({
                         to: [nextRow, nextCol],
                         takenPiece: null,
                     });
+                } else {
+                    isFirstPieceFound = true;
                 }
 
                 nextRow += dirRow;
