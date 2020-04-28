@@ -1,5 +1,10 @@
 /* eslint-disable import/prefer-default-export */
-import { isCoordInRange, getOppositeTurn, Turns } from './shared';
+import {
+    isCoordInRange,
+    getOppositeTurn,
+    Turns,
+    checkAllTakes,
+} from './shared';
 
 const checkTakes = (fromRow, fromCol, boardState, selfTurn) => {
     const possibleMoves = [];
@@ -40,22 +45,6 @@ const checkTakes = (fromRow, fromCol, boardState, selfTurn) => {
     return possibleMoves;
 };
 
-const checkAllTakes = (boardState, selfTurn) => {
-    for (let row = 0; row < 8; ++row) {
-        const boardRow = boardState[row];
-        for (let col = 0; col < 8; ++col) {
-            const piece = boardRow[col];
-            if (piece !== null
-                && piece.turn === selfTurn
-                && checkTakes(row, col, boardState, selfTurn).length > 0
-            ) {
-                return true;
-            }
-        }
-    }
-    return false;
-};
-
 const checkMoves = (from, boardState, checkOnlyTakes) => {
     const [fromRow, fromCol] = from;
     const selfTurn = boardState[fromRow][fromCol].turn;
@@ -65,7 +54,7 @@ const checkMoves = (from, boardState, checkOnlyTakes) => {
     let canTake = possibleMoves.length > 0;
 
     if (!canTake) {
-        canTake = checkAllTakes(boardState, selfTurn);
+        canTake = checkAllTakes(boardState, selfTurn, checkTakes);
     }
 
     if (!canTake && !checkOnlyTakes) {
