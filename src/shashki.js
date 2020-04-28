@@ -10,23 +10,11 @@ import {
 import man from './man';
 import king from './king';
 
-class RussianShashki {
+class Validator {
     constructor() {
         this.boardState = EMPTY();
         this.moveTurn = Turns.White;
         this.isMoveFinished = true;
-    }
-
-    getBoardState() {
-        return this.boardState;
-    }
-
-    getIsMoveFinished() {
-        return this.isMoveFinished;
-    }
-
-    getMoveTurn() {
-        return this.moveTurn;
     }
 
     setStartingPosition() {
@@ -159,4 +147,8 @@ class RussianShashki {
     }
 }
 
-export default RussianShashki;
+export default {
+    Validator,
+    Turns,
+    PieceTypes,
+};
